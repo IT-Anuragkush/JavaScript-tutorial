@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>for loop</title>
+  </head>
+  <body>
+    <select id="currDay"></select>
+    <select id="currMonth"></select>
+    <select id="currYear"></select>
+
+    <script>
+      // day
+      let option = `<option value="DD">DD</option>`;
+
+      let i = 1;
+      while ( i <= 31) {
+        option += `<option value="${i}">${i}</option>`;
+        i++;
+      }
+
+      document.getElementById("currDay").innerHTML = option;
+
+      // month
+      let option1 = `<option value="MM">MM</option>`;
+
+      let j = 1;
+      while (j <= 12) {
+        option1 += `<option value="${j}">${j}</option>`;
+        j++;
+      }
+
+      document.getElementById("currMonth").innerHTML = option1;
+
+      // year
+      let option2 = `<option value="YYYY">YYYY</option>`;
+
+      let d = new Date();
+      let k = d.getFullYear();
+
+      while (k >= 1950) {
+        option2 += `<option value="${k}">${k}</option>`;
+        k--;
+      }
+
+      document.getElementById("currYear").innerHTML = option2;
+
+    </script>
+  </body>
+</html>

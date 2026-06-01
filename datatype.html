@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>data type</title>
+</head>
+<body>
+  <script>
+    // primitive data types - number, string, boolean, undefined, null, symbol, BigInt 
+    // number
+    console.log("-----number datatype-----");
+    // let a = 10;
+    let a = 10.2;
+    console.log(a);  
+    console.log(typeof (a));  // number
+
+    // string 
+    console.log("-----string datatype-----");
+    let str = "Anurag kushwaha";
+    console.log("hello", str);
+    console.log(typeof str);
+
+    // boolean
+    console.log("-----boolean datatype-----");
+    let isMarried = false;
+    console.log(isMarried);
+    console.log(typeof isMarried);  // boolean
+
+    // undefined
+    console.log("-----undefined datatype-----");
+    let b;
+    console.log(b);
+    console.log(typeof b);  // undefined
+
+    // null 
+    console.log("-----Null datatype-----");
+    let n = null;
+    console.log(n);
+    console.log(typeof n);  // object  (considered a historical bug in JS)
+
+    // Symbol 
+    console.log("-----symbol datatype-----");
+    let sym = Symbol("abcd");
+    console.log(sym);
+    console.log(typeof sym);  // symbol
+    
+    // BigInt 
+    console.log("-----BigInt datatype-----");
+    let BigValue = 123456789012345678901234678901234567890n;
+    console.log(BigValue);
+    console.log(typeof BigValue);  // bigInt
+
+
+    // Non primitive data type - Object (object, array, function, Date, RegEx)
+    //  Object
+    console.log("-----object datatype-----");
+    let uInfo = {
+      Username : "Anurag",
+      Address: "bholaram",
+      Mobile : 1234567890,
+      Age : 24
+    }
+
+    console.log(uInfo);
+    console.log(uInfo.Username);
+    console.log(uInfo.Address);
+    console.log(uInfo["Age"]);  // or
+
+    console.log(typeof uInfo);  // object
+
+    // Array data type (object)
+    console.log("-----Array object datatype-----");
+    
+    let arr = [1, "ram", "indore", 'A', 20.56];
+    console.log(arr);
+    console.log(Array.isArray(arr)); // true
+    console.log(arr[0]);
+    console.log(arr[2]);
+    console.log(typeof arr);  // object
+    console.log(typeof arr[3]);  // string
+  
+    // function type (object)
+    console.log("-----function object datatype-----");
+    
+    const add = (a, b)=>{  // arraw function
+      return a + b;
+    }
+
+    function msg(str)   // normal function
+    {
+      return "Hello " + str;
+    }
+    console.log(add(10,20));
+    console.log(typeof add);       // function
+    console.log(typeof add(10,20));  // number
+
+    console.log(msg("Ram"));
+    console.log(typeof msg);      // function
+    console.log(typeof msg("Ram"));  // string
+
+    // Date type
+    console.log("-----Date object datatype-----");
+    
+    console.log(Date());  // or  - Ye current date string return karta hai.
+    let d = new Date();
+    console.log(d);       // Ye actual Date object print karta hai.
+    console.log(d.getDate());
+    console.log(typeof d);  // object 
+
+    // RegExpression type
+    console.log("-----RegExpression object datatype-----");
+    let RegEx = /^[0-9A-Za-z\s]+$/
+    console.log(RegEx);
+    console.log(typeof RegEx);   // object
+
+    console.log(RegEx.test("Anurag 123")); // true
+    console.log(RegEx.test("Hello@123"));  // false   // test() - it match 
+    
+  </script>
+</body>
+</html>

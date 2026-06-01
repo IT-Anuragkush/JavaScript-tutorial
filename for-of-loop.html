@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <div id="arrData"></div>
+
+  
+  <script>
+    let arrItem = "";
+    let arr = [1 , "Ram shaema", "male", 5266171816, 4.5];
+
+    for(let item of arr)  // it gives only value it did not give key
+    {
+      arrItem += `${item} <br>`;  
+    }
+
+    document.getElementById("arrData").innerHTML = arrItem;
+
+  </script>
+</body>
+</html>

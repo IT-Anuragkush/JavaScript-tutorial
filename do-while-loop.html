@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>do-while loop</title>
+</head>
+<body>
+  
+  <input type="text" name="" id="num">
+
+  <button type="button" onclick="show()">click me</button>
+
+  <ul id="myList">
+
+  </ul>
+
+  <script>
+    function show()
+    {
+      var num = document.getElementById("num").value;
+
+      var listItem = "";
+
+      // var listItem = `<li>num</li>`;
+
+      // do{
+      //   listItem += `<li>${num}</li>`;
+      //   num++;
+      // }while(num <= 10);
+
+      // document.getElementById("myList").innerHTML = listItem;
+
+      let list = document.getElementById("myList");
+      do {
+        const li = document.createElement("li");
+        li.textContent = num;
+        list.appendChild(li);
+        num++;
+      } while (num <= 10);
+
+    }
+  </script>
+</body>
+</html>

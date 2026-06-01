@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <h1 id="mainhead" class="mhead">heading 1</h1>
+
+  <input type="text" name="userName">
+
+  <div id="myId" class="myClass"></div>
+  
+  <p id="myId1" class="myClass">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Fugiat cum fuga omnis totam molestias quo aut eos iusto incidunt dolorum. Consequuntur tenetur assumenda minima voluptas? Quasi quibusdam voluptates eius! Delectus.</p>
+
+  <p id="myId2" class="myClass">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Fugiat cum fuga omnis totam molestias quo aut eos iusto incidunt dolorum. Consequuntur tenetur assumenda minima voluptas? Quasi quibusdam voluptates eius! Delectus.</p>
+
+  <p class="myClass">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Fugiat cum fuga omnis totam molestias quo aut eos iusto incidunt dolorum. Consequuntur tenetur assumenda minima voluptas? Quasi quibusdam voluptates eius! Delectus.</p>
+
+  <p class="myClass">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Fugiat cum fuga omnis totam molestias quo aut eos iusto incidunt dolorum. Consequuntur tenetur assumenda minima voluptas? Quasi quibusdam voluptates eius! Delectus.</p>
+  <script>
+    // 1. getElementById()
+    document.getElementById("myId").innerHTML = "this is heading";
+    document.getElementById("myId").style.background = "yellow";
+
+
+    // 2. getElementsByClassName()
+    document.getElementsByClassName("myClass")[0].style.color = "red";
+    
+    let para = document.getElementsByClassName("myClass");
+    for(let i = 0; i < para.length; i++)
+    {
+      para[i].style.color = "red";
+      // document.getElementsByClassName("myClass")[i].style.color = "red";
+    }
+
+
+    // 3. getElementsByTagName()
+    document.getElementsByTagName("p")[1].style.textShadow = "1px 2px blue";
+
+
+    // 4. getElementsByTagName() - Name attribute
+    document.getElementsByName("userName")[0].style.borderRadius = "5px";
+  
+    
+    // 5. querySelector() - it apply only first selector
+
+    // document.querySelector("#myId").style.textShadow = "2px 2px blue";
+    // document.querySelector(".myClass").style.border = "1px dashed blue";
+    document.querySelector("p").style.fontSize = "30px";
+
+
+    // 6. querySelectorAll()[]
+    document.querySelectorAll("#myId1")[0].style.background = "gray"; 
+    document.querySelectorAll(".myClass")[2].style.background = "gray"; 
+    document.querySelectorAll("p")[3].style.background = "gray"; 
+  </script>
+</body>
+</html>

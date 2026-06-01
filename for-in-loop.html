@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>for in loop</title>
+</head>
+<body>
+   
+  <div id="data"></div>
+
+  <script>
+    let userInfo = {
+      name: "Ram sharma", 
+      age:23, 
+      mobile:"+91-35586406", 
+      city:"bholaram", 
+      gendar:"male"
+    }
+
+    let info = "";
+    for(let key in userInfo)  // it gives key, it did not give value
+    {
+      // info += key + "<br>";
+      // info += key + " : " + userInfo[key] + "<br>";
+      info += `${key} : ${userInfo[key]} <br>`;
+    }
+
+    // for(let item of userInfo)
+    // {
+    //    console.log("item");  //(X)
+    // }
+
+    document.getElementById("data").innerHTML = info;
+
+  </script>
+</body>
+</html>

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+ 
+  <script>
+    // var type - we can declare and initialization
+    console.log("...var type...");
+    {
+      console.log(a);
+      // var a; 
+      var a = 20;     // scope is globle
+      console.log(a);
+    }
+    console.log(a);
+    var a = 2.5;
+    console.log(a);
+    var a = "Anurag";
+    console.log(a);
+
+
+
+    // let type - we can declare and but not initialization
+    console.log("...let type...")
+    {
+      // console.log(b);  // (X)
+      // let b;  
+      let b = 30;
+      console.log(b);
+      b = 2.6;
+      console.log(b);
+      
+      // let b = 75;  //(X)
+    }
+    // console.log(b); // (X)
+
+    let b = 60;
+    console.log(b); 
+    
+
+
+    // const type  - can not declare and initialization
+    console.log("....const type..."); 
+    {
+      // const c;     //(X) 
+      const c = 30;   // block scope
+      console.log(c);
+
+      // c = 60;    // (X)
+    }
+    c = 50;  
+    console.log(c);
+
+  </script>
+</body>
+</html>
