@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>if else</title>
+  <style>
+    .cityImage{
+      width: 400px;
+      height: 300px;
+      border-radius: 10px;
+    }
+
+    #cityInfo{
+      margin-top: 20px;
+      font-family: Arial, sans-serif;
+    }
+  </style>
+</head>
+<body>
+  <select name="city" id="city" onclick="showDetails()">  // if you are use onclick in select then no need to use button
+    <option value="Select a City">Select a City</option>
+    <option value="indore">indore</option>
+    <option value="bhopal">bhopal</option>
+    <option value="ujjain">ujjain</option>
+    <option value="dewas">dewas</option>
+    <option value="jabalpur">jabalpur</option>
+  </select>
+
+  <button onclick="showDetails()">show details</button>
+
+  <div id="cityInfo"></div>
+
+  <script>
+    function showDetails(){
+      var selecteCity = document.getElementById("city").value;
+
+      // alert(selecteCity);
+
+      var imagePath = "./image";
+
+      let cityData = "";
+
+      if(selecteCity == ""){
+        cityData = "<h3>Please select a city.</h3>";
+      }
+      else if(selecteCity == "indore")
+      {
+        cityData = `
+        <img src="${imagePath}/indore.jpg" class="cityImage" >
+        <ul>
+          <li>
+            It is the largest city in the state of Madhya Pradesh.
+          </li>
+          <li>
+            Indore is known as the commercial capital of Madhya Pradesh.
+          </li>
+          <li>
+            The city is famous for its cleanliness and has repeatedly ranked among India's cleanest cities.
+          </li>
+          <li>
+            Indore was founded by the Ahilyabai Holkar and the Holkar dynasty played a major role in its development.
+          </li>
+          <li>
+            Popular tourist attractions include:
+            <ul>
+              <li>Rajwada Palace</li>
+              <li>Lal Bagh Palace</li>
+              <li>Khajrana Ganesh Temple</li>
+              <li>Sarafa Bazaar</li>
+            </ul>
+          </li>
+        </ul>`
+      }
+      else if(selecteCity == "bhopal"){
+        cityData = `
+        <img src="image/bhopal.jpg" class="cityImage" >
+        <ul>
+          <li>
+            Bhopal is the capital city of the Indian state of Madhya Pradesh.
+          </li>
+          <li>
+            It is popularly known as the "City of Lakes" because of its many natural and artificial lakes.
+          </li>
+          <li>
+            The city was originally founded as Bhojpal by Raja Bhoj in the 11th century.
+          </li>
+          <li>
+            The city is famous for Upper Lake (Bhojtal) and Lower Lake, which are major landmarks and sources of water.
+          </li>
+          <li>
+            The Bhojeshwar Temple is located in the village of Bhojpur, about 28 km from Bhopal.
+          </li>
+        </ul>`
+      }
+      else if(selecteCity == "ujjain"){
+        cityData = `
+        <img src="image/ujjain.jpg" class="cityImage" >
+        <ul>
+          <li>
+            It is located on the banks of the Kshipra River.
+          </li>
+          <li>
+            The city is famous for the Mahakaleshwar Jyotirlinga, one of the 12 Jyotirlingas of Lord Shiva.
+          </li>
+          <li>
+            The city is associated with the legendary king Vikramaditya.
+          </li>
+          <li>
+            Ujjain hosts the Simhastha Kumbh Mela every 12 years.
+          </li>
+          <li>
+            Major attractions include:
+            <ul>
+              <li>Mahakaleshwar Jyotirlinga</li>
+              <li>Kal Bhairav Temple</li>
+              <li>Harsiddhi Temple</li>
+              <li>Ram Ghat</li>
+              <li>Jantar Mantar Ujjain</li>
+            </ul>
+          </li>
+        </ul>
+        `
+      }
+      else if(selecteCity == "dewas"){
+        cityData = `
+        <img src="image/dewas.jpg" class="cityImage" >
+        <ul>
+          <li>
+            Dewas is a city in the state of Madhya Pradesh, situated on the Malwa Plateau between Bhopal and Indore. It is about 35 km from Indore and around 143 km from Bhopal.
+          </li>
+          <li>
+            The city is famous for the Chamunda Mata Temple located on Chamunda Hill, from which the name "Dewas" is believed to be derived.
+          </li>
+          <li>
+            Dewas is one of Madhya Pradesh's important industrial centers, known for manufacturing, pharmaceuticals, engineering industries, soybean processing, and the Bank Note Press that prints Indian currency notes.
+          </li>
+          <li>
+            The city is often called the "Soy Capital of India" because of its significant soybean-processing industry.
+          </li>
+          <li>
+            The city is well connected by road and rail, making it an important trade and transportation center in the Malwa region.
+          </li>
+        </ul>
+        `
+      }
+      else if(selecteCity == "jabalpur"){
+        cityData = `
+        <img src="image/jabalpur.jpg" class="cityImage" >
+        <ul>
+          <li>
+            Located in the state of Madhya Pradesh.
+          </li>
+          <li>
+            Situated on the banks of the Narmada River.
+          </li>
+          <li>
+            The famous Madan Mahal Fort was built by the Gond rulers.
+          </li>
+          <li>
+            Home to Jawaharlal Nehru Agricultural University.
+          </li>
+          <li>
+            Famous Tourist Attractions : 
+            <ul>
+              <li>Bhedaghat – Famous for stunning marble rock formations.</li>
+              <li>Dhuandhar Falls – A spectacular waterfall on the Narmada River.</li>
+              <li>Madan Mahal Fort – Historic fort with panoramic city views.</li>
+              <li>Chausath Yogini Temple – Ancient temple dedicated to Yoginis.</li>
+              <li>Rani Durgavati Museum – Showcases regional history and culture.</li>
+            </ul>
+          </li>
+        </ul>`
+      }
+      else{
+        cityData = "No Data Found";
+      }
+
+      document.getElementById("cityInfo").innerHTML = cityData;
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    #state, #cities{
+      /* width: 200px;
+      height: 50px; */
+      font-size: 40px;
+    }
+  </style>
+</head>
+<body>
+  <!-- <select name="state" id="state" onchange="showCities()">
+    <option value="select">select state</option>
+    <option value="AP">Andhra Pradesh</option>
+    <option value="AR">Arunachal Pradesh</option>
+    <option value="AS">Assam</option>
+    <option value="BR">Bihar</option>
+    <option value="CG">Chhattisgarh</option>
+    <option value="GA">Goa</option>
+    <option value="GJ">Gujarat</option>
+    <option value="HR">Haryana</option>
+    <option value="HP">Himachal Pradesh</option>
+    <option value="JH">Jharkhand</option>
+    <option value="KA">Karnataka</option>
+    <option value="KL">Kerala</option>
+    <option value="MP">Madhya Pradesh</option>
+    <option value="MH">Maharashtra</option>
+    <option value="MN">Manipur</option>
+    <option value="ML">Meghalaya</option>
+    <option value="MZ">Mizoram</option>
+    <option value="NL">Nagaland</option>
+    <option value="OD">Odisha</option>
+    <option value="PB">Punjab</option>
+    <option value="RJ">Rajasthan</option>
+    <option value="SK">Sikkim</option>
+    <option value="TN">Tamil Nadu</option>
+    <option value="TG">Telangana</option>
+    <option value="TR">Tripura</option>
+    <option value="UP">Uttar Pradesh</option>
+    <option value="UK">Uttarakhand</option>
+    <option value="WB">West Bengal</option>
+  </select> -->
+
+  <select id="state" onchange="showCities()">
+    <option value="">Select State</option>
+  </select>
+
+  <select id="cities">
+    <option>Select City</option>
+  </select>
+
+  <script>
+
+    const states = [
+      "Andhra Pradesh","Arunachal Pradesh","Assam","Bihar","Chhattisgarh","Goa","Gujarat","Haryana","Himachal Pradesh","Jharkhand","Karnataka","Kerala","Madhya Pradesh","Maharashtra", "Manipur","Meghalaya", "Mizoram","Nagaland","Odisha", "Punjab","Rajasthan", "Sikkim", "Tamil Nadu", "Telangana", "Tripura","Uttar Pradesh", "Uttarakhand", "West Bengal" ];
+
+      let optionStates = `<option value="select state">salect states</option>`;
+
+      for(let i = 0; i < states.length; i++)
+      {
+        optionStates += `<option value="${states[i]}">${states[i]}</option>`;
+      }
+
+      document.getElementById("state").innerHTML = optionStates;
+
+
+    function showCities(){
+
+      let currentState = document.getElementById("state").value;
+      
+      let options = "";
+
+      if(currentState == "Madhya Pradesh")
+      {
+        let city = [
+          "Indore", "Bhopal", "Jabalpur", "Gwalior", "Ujjain",
+          "Sagar", "Rewa", "Satna", "Dewas", "Ratlam"
+        ];
+        
+        for(let index = 0; index < city.length; index++)
+        {
+          options += `<option>${city[index]}</option>`;
+        }
+      }
+
+      else if(currentState == "Uttar Pradesh")
+      {
+        let city = [
+          "Lucknow", "Kanpur", "Agra", "Varanasi", "Prayagraj",
+          "Ghaziabad", "Noida", "Meerut", "Aligarh", "Bareilly"
+        ];
+        
+        for(let index = 0; index < city.length; index++)
+        {
+          options += `<option>${city[index]}</option>`;
+        }
+      }
+
+      else if(currentState == "Maharashtra")
+      {
+        let city =  [
+          "Mumbai", "Pune", "Nagpur", "Nashik", "Thane",
+          "Aurangabad", "Solapur", "Kolhapur", "Amravati", "Jalgaon"
+        ];
+        
+        for(let index = 0; index < city.length; index++)
+        {
+          options += `<option>${city[index]}</option>`;
+        }
+      }
+
+      else if(currentState == "Chhattisgarh")
+      {
+        let city = [
+          "Raipur", "Bilaspur", "Durg", "Bhilai", "Korba",
+          "Raigarh", "Jagdalpur", "Ambikapur", "Rajnandgaon", "Dhamtari"
+        ];
+        
+        for(let index = 0; index < city.length; index++)
+        {
+          options += `<option>${city[index]}</option>`;
+        }
+      }
+      else if(currentState == "Rajasthan")
+      {
+        let city = [
+          "Jaipur", "Jodhpur", "Udaipur", "Kota", "Ajmer",
+          "Bikaner", "Alwar", "Bharatpur", "Sikar", "Pali"
+        ]
+
+        for(let index = 0; index < city.length; index++)
+        {
+          options += `<option>${city[index]}</option>`;
+        }
+      }
+      else if(currentState == "Gujarat")
+      {
+        let city = [
+          "Ahmedabad", "Surat", "Vadodara", "Rajkot", "Bhavnagar",
+          "Jamnagar", "Junagadh", "Gandhinagar", "Anand", "Morbi"
+        ];
+
+        for(let index = 0; index < city.length; index++)
+        {
+          options += `<option>${city[index]}</option>`;
+        }
+      }
+      else if(currentState == "Punjab")
+      {
+        let city = [
+          "Ludhiana", "Amritsar", "Jalandhar", "Patiala", "Bathinda",
+          "Mohali", "Pathankot", "Moga", "Hoshiarpur", "Kapurthala"
+        ];
+
+        for(let index = 0; index < city.length; index++)
+        {
+          options += `<option>${city[index]}</option>`;
+        }
+      }
+      else if(currentState == "Haryana")
+      {
+        let city = [
+          "Gurugram", "Faridabad", "Panipat", "Ambala", "Hisar",
+          "Rohtak", "Karnal", "Sonipat", "Yamunanagar", "Panchkula"
+        ];
+
+        for(let index = 0; index < city.length; index++)
+        {
+          options += `<option>${city[index]}</option>`;
+        }
+      }
+      else if(currentState == "Bihar")
+      {
+        let city = [
+          "Patna", "Gaya", "Muzaffarpur", "Bhagalpur", "Darbhanga",
+          "Purnia", "Ara", "Begusarai", "Katihar", "Munger"
+        ];
+
+        for(let index = 0; index < city.length; index++)
+        {
+          options += `<option>${city[index]}</option>`;
+        }
+      }
+      else if (currentState == "Jharkhand") {
+        let city = [
+          "Ranchi", "Jamshedpur", "Dhanbad", "Bokaro", "Deoghar",
+          "Hazaribagh", "Giridih", "Ramgarh", "Chaibasa", "Dumka"
+        ];
+
+        for (let index = 0; index < city.length; index++) {
+          options += `<option>${city[index]}</option>`;
+        }
+      }
+
+      else if (currentState == "West Bengal") {
+        let city = [
+          "Kolkata", "Howrah", "Durgapur", "Siliguri", "Asansol",
+          "Kharagpur", "Malda", "Bardhaman", "Haldia", "Raiganj"
+        ];
+
+        for (let index = 0; index < city.length; index++) {
+          options += `<option>${city[index]}</option>`;
+        }
+      }
+
+      else if (currentState == "Odisha") {
+        let city = [
+          "Bhubaneswar", "Cuttack", "Rourkela", "Sambalpur", "Puri",
+          "Balasore", "Berhampur", "Baripada", "Jharsuguda", "Jeypore"
+        ];
+
+        for (let index = 0; index < city.length; index++) {
+          options += `<option>${city[index]}</option>`;
+        }
+      }
+
+      else if (currentState == "Karnataka") {
+        let city = [
+          "Bengaluru", "Mysuru", "Mangaluru", "Hubballi",
+          "Belagavi", "Shivamogga", "Ballari", "Tumakuru"
+        ];
+
+        for (let index = 0; index < city.length; index++) {
+          options += `<option>${city[index]}</option>`;
+        }
+      }
+
+      else if (currentState == "Tamil Nadu") {
+        let city = [
+          "Chennai", "Coimbatore", "Madurai", "Salem",
+          "Tiruchirappalli", "Erode", "Vellore", "Thoothukudi"
+        ];
+
+        for (let index = 0; index < city.length; index++) {
+          options += `<option>${city[index]}</option>`;
+        }
+      }
+
+      else if (currentState == "Kerala") {
+        let city = [
+          "Thiruvananthapuram", "Kochi", "Kozhikode", "Thrissur",
+          "Kollam", "Alappuzha", "Kannur", "Palakkad"
+        ];
+
+        for (let index = 0; index < city.length; index++) {
+          options += `<option>${city[index]}</option>`;
+        }
+      }
+
+      else if (currentState == "Andhra Pradesh") {
+        let city = [
+          "Visakhapatnam", "Vijayawada", "Guntur", "Nellore",
+          "Kurnool", "Rajahmundry", "Tirupati", "Kadapa"
+        ];
+
+        for (let index = 0; index < city.length; index++) {
+          options += `<option>${city[index]}</option>`;
+        }
+      }
+
+      else if (currentState == "Telangana") {
+        let city = [
+          "Hyderabad", "Warangal", "Nizamabad", "Karimnagar",
+          "Khammam", "Ramagundam", "Mahabubnagar", "Adilabad"
+        ];
+
+        for (let index = 0; index < city.length; index++) {
+          options += `<option>${city[index]}</option>`;
+        }
+      }
+
+      else if (currentState == "Assam") {
+        let city = [
+          "Guwahati", "Dibrugarh", "Silchar", "Jorhat",
+          "Tezpur", "Nagaon", "Tinsukia", "Bongaigaon"
+        ];
+
+        for (let index = 0; index < city.length; index++) {
+          options += `<option>${city[index]}</option>`;
+        }
+      }
+
+      else if (currentState == "Uttarakhand") {
+        let city = [
+          "Dehradun", "Haridwar", "Roorkee", "Haldwani",
+          "Rudrapur", "Kashipur", "Rishikesh", "Almora"
+        ];
+
+        for (let index = 0; index < city.length; index++) {
+          options += `<option>${city[index]}</option>`;
+        }
+      }
+
+      else if (currentState == "Himachal Pradesh") {
+        let city = [
+          "Shimla", "Dharamshala", "Mandi", "Solan",
+          "Kullu", "Hamirpur", "Bilaspur", "Chamba"
+        ];
+
+        for (let index = 0; index < city.length; index++) {
+          options += `<option>${city[index]}</option>`;
+        }
+      }
+
+      else if (currentState == "Arunachal Pradesh") {
+        let city = [
+          "Itanagar", "Naharlagun", "Pasighat", "Tawang",
+          "Bomdila", "Ziro", "Roing", "Tezu"
+        ];
+
+        for (let index = 0; index < city.length; index++) {
+          options += `<option>${city[index]}</option>`;
+        }
+      }
+
+      else if (currentState == "Goa") {
+        let city = [
+          "Panaji", "Margao", "Vasco da Gama", "Mapusa",
+          "Ponda", "Bicholim", "Curchorem", "Quepem"
+        ];
+
+        for (let index = 0; index < city.length; index++) {
+          options += `<option>${city[index]}</option>`;
+        }
+      }
+
+      else if (currentState == "Manipur") {
+        let city = [
+          "Imphal", "Thoubal", "Bishnupur", "Churachandpur",
+          "Ukhrul", "Kakching", "Moirang", "Senapati"
+        ];
+
+        for (let index = 0; index < city.length; index++) {
+          options += `<option>${city[index]}</option>`;
+        }
+      }
+
+      else if (currentState == "Meghalaya") {
+        let city = [
+          "Shillong", "Tura", "Jowai", "Nongstoin",
+          "Baghmara", "Williamnagar", "Resubelpara", "Mairang"
+        ];
+
+        for (let index = 0; index < city.length; index++) {
+          options += `<option>${city[index]}</option>`;
+        }
+      }
+
+      else if (currentState == "Mizoram") {
+        let city = [
+          "Aizawl", "Lunglei", "Champhai", "Serchhip",
+          "Kolasib", "Saiha", "Lawngtlai", "Mamit"
+        ];
+
+        for (let index = 0; index < city.length; index++) {
+          options += `<option>${city[index]}</option>`;
+        }
+      }
+
+      else if (currentState == "Nagaland") {
+        let city = [
+          "Kohima", "Dimapur", "Mokokchung", "Tuensang",
+          "Wokha", "Zunheboto", "Mon", "Phek"
+        ];
+
+        for (let index = 0; index < city.length; index++) {
+          options += `<option>${city[index]}</option>`;
+        }
+      }
+
+      else if (currentState == "Sikkim") {
+        let city = [
+          "Gangtok", "Namchi", "Geyzing", "Mangan",
+          "Rangpo", "Singtam", "Jorethang", "Naya Bazar"
+        ];
+
+        for (let index = 0; index < city.length; index++) {
+          options += `<option>${city[index]}</option>`;
+        }
+      }
+
+      else if (currentState == "Tripura") {
+        let city = [
+          "Agartala", "Udaipur", "Dharmanagar", "Kailashahar",
+          "Belonia", "Khowai", "Teliamura", "Ambassa"
+        ];
+
+        for (let index = 0; index < city.length; index++) {
+          options += `<option>${city[index]}</option>`;
+        }
+      }
+
+      document.getElementById("cities").innerHTML = options;
+
+    }
+  </script>
+</body>
+</html>

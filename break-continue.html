@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>continue</title>
+</head>
+<body>
+  <ul id="listData">
+
+  </ul>
+
+  <script>
+    let list = "";
+
+    for(let i = 0; i <= 10; i++)
+    {
+      if(i % 2 == 0)  // if(i == 5 || i == 7) // if(i % 2 != 0)
+      {
+        continue;
+      }
+      // if(i == 3)
+      // {
+      //   break;
+      // }
+      list += `<li>${i}</li>`;
+    }
+
+    document.querySelector("#listData").innerHTML = list;
+
+  </script>
+</body>
+</html>

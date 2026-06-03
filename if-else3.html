@@ -1,0 +1,518 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .tabs {
+        display: flex;
+        gap: 5px;
+        margin-bottom: 20px;
+      }
+      .tab {
+        padding: 10px 20px;
+        background-color: rgb(52, 152, 219);
+        color: white;
+        cursor: pointer;
+        border-radius: 5px;
+        user-select: none;
+      }
+      .tab:hover {
+        background-color: rgb(41, 128, 185);
+      }
+      .cityImage {
+        width: 400px;
+        height: 300px;
+        object-fit: cover;
+        border-radius: 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="tabs">
+      <div class="tab" onclick="showDetails('HTML')">HTML</div>
+      <div class="tab" onclick="showDetails('CSS')">CSS</div>
+      <div class="tab" onclick="showDetails('JavaScript')">JavaScript</div>
+      <div class="tab" onclick="showDetails('MongoDB')">MongoDB</div>
+      <div class="tab" onclick="showDetails('Nodejs')">Node js</div>
+      <div class="tab" onclick="showDetails('Expressjs')">Express js</div>
+      <div class="tab" onclick="showDetails('Reactjs')">React js</div>
+    </div>
+
+    <div id="languageInfo"></div>
+
+    <script>
+      function showDetails(language) {
+        let info = "";
+
+        if (language == "HTML") {
+          info = `
+            <h2>About HTML</h2>
+            <ul>
+              <li>HTML stands for HyperText Markup Language.</li>
+              <li>It is the standard markup language used to create web pages.</li>
+              <li>HTML was developed by <strong>Tim Berners-Lee in 1991.</strong></li>
+              <li>Tim Berners-Lee is also known as the inventor of the World Wide Web (WWW).</li>
+              <li>HTML is used to structure content on websites.</li>
+              <li>HTML uses tags such as &lt;h1&gt;, &lt;p&gt;, &lt;a&gt;, &lt;img&gt;, and &lt;div&gt;.</li>
+              <li>HTML is not a programming language; it is a markup language.</li>
+              <li>HTML works together with CSS for styling and JavaScript for interactivity.</li>
+              <li>The latest major version is HTML5, which introduced audio, video, canvas, and semantic elements.</li>
+              <li>HTML documents are saved with the .html or .htm file extension.</li>
+              <li>HTML is supported by all modern web browsers.</li>
+              <li>Common semantic HTML tags include:
+                <ul>
+                  <li>&lt;header&gt;</li>
+                  <li>&lt;nav&gt;</li>
+                  <li>&lt;main&gt;</li>
+                  <li>&lt;section&gt;</li>
+                  <li>&lt;article&gt;</li>
+                  <li>&lt;footer&gt;</li>
+                </ul>
+              </li>
+              <li>HTML is maintained and developed through standards published by the W3C and the WHATWG community.</li>
+              <li>HTML is one of the three core technologies of the web:
+                <ul>
+                  <li>HTML – Structure</li>
+                  <li>CSS – Design/Styling</li>
+                  <li>JavaScript – Functionality</li>
+                </ul>
+              </li>
+            </ul>
+            `;
+        } else if (language == "CSS") {
+          info = `
+            <h2>About CSS</h2>
+            <ul>
+              <li>CSS stands for Cascading Style Sheets.</li>
+              <li>It is used to style and design web pages.</li>
+              <li>CSS was proposed by <strong>Håkon Wium Lie in 1994.</strong></li>
+              <li>CSS was first released by the W3C in 1996.</li>
+              <li>CSS controls the appearance of HTML elements.</li>
+              <li>It is used to set colors, fonts, spacing, layouts, and animations.</li>
+              <li>CSS is not a programming language; it is a style sheet language.</li>
+              <li>CSS works together with HTML and JavaScript to create modern websites.</li>
+              <li>CSS allows developers to separate content (HTML) from presentation (design).</li>
+              <li>CSS can be applied in three ways:
+                <ul>
+                  <li>Inline CSS</li>
+                  <li>Internal CSS</li>
+                  <li>External CSS</li>
+                </ul>
+              </li>
+              <li>Common CSS selectors include:
+                <ul>
+                  <li>Element Selector (p, h1, div)</li>
+                  <li>Class Selector (.className)</li>
+                  <li>ID Selector (#idName)</li>
+                  <li>Universal Selector (*)</li>
+                  <li>Attribute Selector ([type="text"])</li>
+                </ul>
+              </li>
+              <li>Popular CSS properties include:
+                <ul>
+                  <li>color</li>
+                  <li>background-color</li>
+                  <li>font-size</li>
+                  <li>margin</li>
+                  <li>padding</li>
+                  <li>border</li>
+                </ul>
+              </li>
+              <li>CSS supports responsive web design using:
+                <ul>
+                  <li>Media Queries</li>
+                  <li>Flexbox</li>
+                  <li>CSS Grid</li>
+                </ul>
+              </li>
+              <li>CSS provides advanced features such as:
+                <ul>
+                  <li>Transitions</li>
+                  <li>Animations</li>
+                  <li>Transforms</li>
+                  <li>Variables (Custom Properties)</li>
+                </ul>
+              </li>
+              <li>CSS is maintained and developed through standards published by W3C.</li>
+              <li>CSS is one of the three core technologies of the web:
+                <ul>
+                  <li>HTML – Structure</li>
+                  <li>CSS – Design/Styling</li>
+                  <li>JavaScript – Functionality</li>
+                </ul>
+              </li>
+              <li>Modern websites use CSS frameworks such as:
+                <ul>
+                  <li>Bootstrap</li>
+                  <li>Tailwind CSS</li>
+                  <li>Bulma</li>
+                  <li>Foundation</li>
+                </ul>
+              </li>
+            </ul>`;
+        } else if (language == "JavaScript") {
+          info = `
+            <h2>About JavaScript</h2>
+            <ul>
+              <li>JavaScript is a high-level, interpreted programming language.</li>
+              <li>It is used to make web pages interactive and dynamic.</li>
+              <li>JavaScript was created by <strong>Brendan Eich in 1995.</strong></li>
+              <li>It was developed in just 10 days while working at Netscape Communications.</li>
+              <li>JavaScript was originally named Mocha, then LiveScript, and later renamed JavaScript.</li>
+              <li>JavaScript is one of the core technologies of the World Wide Web.</li>
+              <li>It works together with HTML and CSS to create modern websites.</li>
+              <li>JavaScript can update and manipulate HTML and CSS dynamically.</li>
+              <li>It is used for:
+                <ul>
+                  <li>Form Validation</li>
+                  <li>Animations</li>
+                  <li>Interactive User Interfaces</li>
+                  <li>API Calls</li>
+                  <li>Game Development</li>
+                </ul>
+              </li>
+              <li>JavaScript can run in web browsers as well as on servers using Node.js.</li>
+              <li>Common JavaScript concepts include:
+                <ul>
+                  <li>Variables</li>
+                  <li>Functions</li>
+                  <li>Objects</li>
+                  <li>Arrays</li>
+                  <li>Loops</li>
+                  <li>Events</li>
+                  <li>Promises</li>
+                  <li>Async/Await</li>
+                </ul>
+              </li>
+              <li>JavaScript supports multiple programming paradigms:
+                <ul>
+                  <li>Object-Oriented Programming (OOP)</li>
+                  <li>Functional Programming</li>
+                  <li>Event-Driven Programming</li>
+                </ul>
+              </li>
+              <li>Modern JavaScript uses the ECMAScript (ES) standard.</li>
+              <li>Important ECMAScript versions include:
+                <ul>
+                  <li>ES5 (2009)</li>
+                  <li>ES6 / ES2015 (2015)</li>
+                  <li>ES2020 and later versions</li>
+                </ul>
+              </li>
+              <li>Popular JavaScript frameworks and libraries include:
+                <ul>
+                  <li>React</li>
+                  <li>Angular</li>
+                  <li>Vue.js</li>
+                  <li>Next.js</li>
+                  <li>Express.js</li>
+                </ul>
+              </li>
+              <li>JavaScript can be used for:
+                <ul>
+                  <li>Frontend Development</li>
+                  <li>Backend Development</li>
+                  <li>Mobile App Development</li>
+                  <li>Desktop Application Development</li>
+                </ul>
+              </li>
+              <li>JavaScript is one of the most widely used programming languages in the world.</li>
+              <li>JavaScript is maintained and standardized by the ECMA International organization through the ECMAScript specification.</li>
+              <li>JavaScript is one of the three core technologies of the web:
+                <ul>
+                  <li>HTML – Structure</li>
+                  <li>CSS – Design/Styling</li>
+                  <li>JavaScript – Functionality</li>
+                </ul>
+              </li>
+            </ul>
+          `;
+        } else if (language == "MongoDB") {
+          info = `
+            <h2>About MongoDB</h2>
+            <ul>
+              <li>MongoDB is a NoSQL database management system.</li>
+              <li>It stores data in flexible, JSON-like documents called BSON (Binary JSON).</li>
+              <li>MongoDB was developed by <strong>MongoDB Inc</strong>.</li>
+              <li>It was first released in 2009.</li>
+              <li>MongoDB was created to handle large amounts of unstructured and semi-structured data.</li>
+              <li>Unlike traditional SQL databases, MongoDB does not store data in tables and rows.</li>
+              <li>Data is stored in:
+                <ul>
+                  <li>Databases</li>
+                  <li>Collections</li>
+                  <li>Documents</li>
+                </ul>
+              </li>
+              <li>A Collection in MongoDB is similar to a table in SQL databases.</li>
+              <li>A Document in MongoDB is similar to a row/record in SQL databases.</li>
+              <li>MongoDB supports dynamic schemas, allowing documents in the same collection to have different structures.</li>
+              <li>Key features of MongoDB include:
+                <ul>
+                  <li>High Performance</li>
+                  <li>Scalability</li>
+                  <li>Flexibility</li>
+                  <li>Indexing</li>
+                  <li>Replication</li>
+                  <li>Aggregation</li>
+                </ul>
+              </li>
+              <li>MongoDB supports CRUD operations:
+                <ul>
+                  <li>Create</li>
+                  <li>Read</li>
+                  <li>Update</li>
+                  <li>Delete</li>
+                </ul>
+              </li>
+              <li>Common MongoDB commands include:
+                <ul>
+                  <li>insertOne()</li>
+                  <li>find()</li>
+                  <li>updateOne()</li>
+                  <li>deleteOne()</li>
+                  <li>aggregate()</li>
+                </ul>
+              </li>
+              <li>MongoDB uses indexes to improve query performance.</li>
+              <li>Replication provides high availability by maintaining multiple copies of data.</li>
+              <li>Sharding allows MongoDB to distribute data across multiple servers.</li>
+              <li>MongoDB integrates well with JavaScript and Node.js applications.</li>
+              <li>It is one of the most popular databases used in MERN Stack development.</li>
+              <li>MERN Stack consists of:
+                <ul>
+                  <li>MongoDB – Database</li>
+                  <li>Express.js – Backend Framework</li>
+                  <li>React – Frontend Library</li>
+                  <li>Node.js – Runtime Environment</li>
+                </ul>
+              </li>
+              <li>MongoDB provides cloud database services through MongoDB Atlas.</li>
+              <li>It is widely used for web applications, mobile applications, analytics, and real-time systems.</li>
+            </ul>
+          `;
+        } else if (language == "Nodejs") {
+          info = `
+            <h2>About Node.js</h2>
+            <ul>
+              <li>Node.js is an open-source JavaScript runtime environment.</li>
+              <li>It allows developers to run JavaScript outside the web browser.</li>
+              <li>Node.js was created by <strong>Ryan Dahl in 2009.</strong></li>
+              <li>It is built on Google's Chrome V8 JavaScript Engine.</li>
+              <li>Node.js is designed for building fast and scalable network applications.</li>
+              <li>It uses an event-driven, non-blocking I/O model.</li>
+              <li>Node.js is lightweight and efficient for handling multiple requests simultaneously.</li>
+              <li>It enables full-stack JavaScript development.</li>
+              <li>Node.js is commonly used for:
+                <ul>
+                  <li>Web Servers</li>
+                  <li>REST APIs</li>
+                  <li>Real-Time Applications</li>
+                  <li>Chat Applications</li>
+                  <li>Streaming Services</li>
+                  <li>Microservices</li>
+                </ul>
+              </li>
+              <li>Key features of Node.js include:
+                <ul>
+                  <li>Asynchronous Programming</li>
+                  <li>Single-Threaded Event Loop</li>
+                  <li>Fast Execution</li>
+                  <li>Cross-Platform Support</li>
+                  <li>Large Package Ecosystem</li>
+                </ul>
+              </li>
+              <li>Node.js uses npm (Node Package Manager) to manage libraries and packages.</li>
+              <li>npm is one of the largest software package registries in the world.</li>
+              <li>Common Node.js modules include:
+                <ul>
+                  <li>http</li>
+                  <li>fs (File System)</li>
+                  <li>path</li>
+                  <li>os</li>
+                  <li>events</li>
+                </ul>
+              </li>
+              <li>Popular Node.js frameworks include:
+                <ul>
+                  <li>Express.js</li>
+                  <li>NestJS</li>
+                  <li>Koa.js</li>
+                  <li>Fastify</li>
+                </ul>
+              </li>
+              <li>Node.js supports modern JavaScript features such as:
+                <ul>
+                  <li>Promises</li>
+                  <li>Async/Await</li>
+                  <li>ES Modules</li>
+                  <li>Arrow Functions</li>
+                </ul>
+              </li>
+              <li>Node.js is widely used in MERN Stack development.</li>
+              <li>MERN Stack consists of:
+                <ul>
+                  <li>MongoDB – Database</li>
+                  <li>Express.js – Backend Framework</li>
+                  <li>React – Frontend Library</li>
+                  <li>Node.js – Runtime Environment</li>
+                </ul>
+              </li>
+              <li>Many large companies use Node.js for their applications.</li>
+              <li>Node.js is maintained by the OpenJS Foundation and the Node.js community.</li>
+            </ul>
+          `;
+        } else if (language == "Expressjs") {
+          info = `
+            <h2>About Express.js</h2>
+            <ul>
+              <li>Express.js is a fast, lightweight, and flexible web application framework for Node.js.</li>
+              <li>It is used to build web applications, RESTful APIs, and backend services.</li>
+              <li>Express.js was created by <strong>TJ Holowaychuk in 2010.</strong></li>
+              <li>It is one of the most popular frameworks for Node.js.</li>
+              <li>Express.js simplifies server-side development by providing useful features and tools.</li>
+              <li>It is built on top of Node.js and uses its event-driven architecture.</li>
+              <li>Key features of Express.js include:
+                <ul>
+                  <li>Routing</li>
+                  <li>Middleware Support</li>
+                  <li>Template Engines</li>
+                  <li>Error Handling</li>
+                  <li>REST API Development</li>
+                </ul>
+              </li>
+              <li>Express.js allows developers to handle HTTP requests such as:
+                <ul>
+                  <li>GET</li>
+                  <li>POST</li>
+                  <li>PUT</li>
+                  <li>PATCH</li>
+                  <li>DELETE</li>
+                </ul>
+              </li>
+              <li>Routing is used to define how an application responds to client requests.</li>
+              <li>Middleware functions can:
+                <ul>
+                  <li>Execute code</li>
+                  <li>Modify request and response objects</li>
+                  <li>End request-response cycles</li>
+                  <li>Call the next middleware function</li>
+                </ul>
+              </li>
+              <li>Common middleware packages include:
+                <ul>
+                  <li>body-parser</li>
+                  <li>cors</li>
+                  <li>morgan</li>
+                  <li>cookie-parser</li>
+                </ul>
+              </li>
+              <li>Express.js supports various template engines such as:
+                <ul>
+                  <li>EJS</li>
+                  <li>Pug</li>
+                  <li>Handlebars</li>
+                </ul>
+              </li>
+              <li>It can connect easily with databases like:
+                <ul>
+                  <li>MongoDB</li>
+                  <li>MySQL</li>
+                  <li>PostgreSQL</li>
+                </ul>
+              </li>
+              <li>Express.js is widely used for building RESTful APIs and backend services.</li>
+              <li>It is a core part of the MERN Stack.</li>
+              <li>MERN Stack consists of:
+                <ul>
+                  <li>MongoDB – Database</li>
+                  <li>Express.js – Backend Framework</li>
+                  <li>React – Frontend Library</li>
+                  <li>Node.js – Runtime Environment</li>
+                </ul>
+              </li>
+              <li>Express.js is open-source and maintained by the Express.js community.</li>
+              <li>It is widely used by startups and large enterprises for scalable web applications.</li>
+            </ul>
+          `;
+        } else if (language == "Reactjs") {
+          info = `
+            <h2>About React.js</h2>
+            <ul>
+              <li>React.js is an open-source JavaScript library used for building user interfaces (UI).</li>
+              <li>It is primarily used for creating Single Page Applications (SPAs).</li>
+              <li>React was developed by <strong>Jordan Walke</strong>, a software engineer at Facebook.</li>
+              <li>It was first released by Facebook in 2013.</li>
+              <li>React helps developers build fast, interactive, and reusable UI components.</li>
+              <li>It follows a component-based architecture.</li>
+              <li>Components are reusable pieces of code that manage their own structure and behavior.</li>
+              <li>React uses a Virtual DOM to improve performance and update the UI efficiently.</li>
+              <li>Key features of React include:
+                <ul>
+                  <li>Component-Based Architecture</li>
+                  <li>Virtual DOM</li>
+                  <li>Reusable Components</li>
+                  <li>One-Way Data Binding</li>
+                  <li>High Performance</li>
+                </ul>
+              </li>
+              <li>React uses JSX (JavaScript XML) to write HTML-like code inside JavaScript.</li>
+              <li>Common React concepts include:
+                <ul>
+                  <li>Components</li>
+                  <li>Props</li>
+                  <li>State</li>
+                  <li>Hooks</li>
+                  <li>Events</li>
+                  <li>Conditional Rendering</li>
+                  <li>Lifecycle Methods</li>
+                </ul>
+              </li>
+              <li>Popular React Hooks include:
+                <ul>
+                  <li>useState()</li>
+                  <li>useEffect()</li>
+                  <li>useContext()</li>
+                  <li>useRef()</li>
+                  <li>useReducer()</li>
+                </ul>
+              </li>
+              <li>React supports client-side routing through libraries such as React Router.</li>
+              <li>React can be used to build:
+                <ul>
+                  <li>Web Applications</li>
+                  <li>Dashboards</li>
+                  <li>E-commerce Websites</li>
+                  <li>Social Media Platforms</li>
+                  <li>Progressive Web Apps (PWAs)</li>
+                </ul>
+              </li>
+              <li>React Native is used to build mobile applications using React concepts.</li>
+              <li>Popular React-based frameworks include:
+                <ul>
+                  <li>Next.js</li>
+                  <li>Remix</li>
+                  <li>Gatsby</li>
+                </ul>
+              </li>
+              <li>React is maintained by Meta (formerly Facebook) and the open-source community.</li>
+              <li>React is the frontend library used in the MERN Stack.</li>
+              <li>MERN Stack consists of:
+                <ul>
+                  <li>MongoDB – Database</li>
+                  <li>Express.js – Backend Framework</li>
+                  <li>React.js – Frontend Library</li>
+                  <li>Node.js – Runtime Environment</li>
+                </ul>
+              </li>
+            </ul>
+          `;
+        }
+
+        document.getElementById("languageInfo").innerHTML = info;
+      }
+    </script>
+  </body>
+</html>

@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <select name="state" id="state" onchange="showCities()">
+    <option value="select">select state</option>
+    <option value="AP">Andhra Pradesh</option>
+    <option value="AR">Arunachal Pradesh</option>
+    <option value="AS">Assam</option>
+    <option value="BR">Bihar</option>
+    <option value="CG">Chhattisgarh</option>
+    <option value="GA">Goa</option>
+    <option value="GJ">Gujarat</option>
+    <option value="HR">Haryana</option>
+    <option value="HP">Himachal Pradesh</option>
+    <option value="JH">Jharkhand</option>
+    <option value="KA">Karnataka</option>
+    <option value="KL">Kerala</option>
+    <option value="MP">Madhya Pradesh</option>
+    <option value="MH">Maharashtra</option>
+    <option value="MN">Manipur</option>
+    <option value="ML">Meghalaya</option>
+    <option value="MZ">Mizoram</option>
+    <option value="NL">Nagaland</option>
+    <option value="OD">Odisha</option>
+    <option value="PB">Punjab</option>
+    <option value="RJ">Rajasthan</option>
+    <option value="SK">Sikkim</option>
+    <option value="TN">Tamil Nadu</option>
+    <option value="TG">Telangana</option>
+    <option value="TR">Tripura</option>
+    <option value="UP">Uttar Pradesh</option>
+    <option value="UK">Uttarakhand</option>
+    <option value="WB">West Bengal</option>
+  </select>
+
+  <select id="cities">
+    <option>Select City</option>
+  </select>
+
+  <script>
+        const stateCities = {
+        MP: [
+          "Indore", "Bhopal", "Jabalpur", "Gwalior", "Ujjain",
+          "Sagar", "Rewa", "Satna", "Dewas", "Ratlam"
+        ],
+
+        UP: [
+          "Lucknow", "Kanpur", "Agra", "Varanasi", "Prayagraj",
+          "Ghaziabad", "Noida", "Meerut", "Aligarh", "Bareilly"
+        ],
+
+        MH: [
+          "Mumbai", "Pune", "Nagpur", "Nashik", "Thane",
+          "Aurangabad", "Solapur", "Kolhapur", "Amravati", "Jalgaon"
+        ],
+
+        CG: [
+          "Raipur", "Bilaspur", "Durg", "Bhilai", "Korba",
+          "Raigarh", "Jagdalpur", "Ambikapur", "Rajnandgaon", "Dhamtari"
+        ],
+
+        RJ: [
+          "Jaipur", "Jodhpur", "Udaipur", "Kota", "Ajmer",
+          "Bikaner", "Alwar", "Bharatpur", "Sikar", "Pali"
+        ],
+
+        GJ: [
+          "Ahmedabad", "Surat", "Vadodara", "Rajkot", "Bhavnagar",
+          "Jamnagar", "Junagadh", "Gandhinagar", "Anand", "Morbi"
+        ],
+
+        PB: [
+          "Ludhiana", "Amritsar", "Jalandhar", "Patiala", "Bathinda",
+          "Mohali", "Pathankot", "Moga", "Hoshiarpur", "Kapurthala"
+        ],
+
+        HR: [
+          "Gurugram", "Faridabad", "Panipat", "Ambala", "Hisar",
+          "Rohtak", "Karnal", "Sonipat", "Yamunanagar", "Panchkula"
+        ],
+
+        BR: [
+          "Patna", "Gaya", "Muzaffarpur", "Bhagalpur", "Darbhanga",
+          "Purnia", "Ara", "Begusarai", "Katihar", "Munger"
+        ],
+
+        JH: [
+          "Ranchi", "Jamshedpur", "Dhanbad", "Bokaro", "Deoghar",
+          "Hazaribagh", "Giridih", "Ramgarh", "Chaibasa", "Dumka"
+        ],
+
+        WB: [
+          "Kolkata", "Howrah", "Durgapur", "Siliguri", "Asansol",
+          "Kharagpur", "Malda", "Bardhaman", "Haldia", "Raiganj"
+        ],
+
+        OD: [
+          "Bhubaneswar", "Cuttack", "Rourkela", "Sambalpur", "Puri",
+          "Balasore", "Berhampur", "Baripada", "Jharsuguda", "Jeypore"
+        ],
+
+        KA: [
+          "Bengaluru", "Mysuru", "Mangaluru", "Hubballi",
+          "Belagavi", "Shivamogga", "Ballari", "Tumakuru"
+        ],
+
+        TN: [
+          "Chennai", "Coimbatore", "Madurai", "Salem",
+          "Tiruchirappalli", "Erode", "Vellore", "Thoothukudi"
+        ],
+
+        KL: [
+          "Thiruvananthapuram", "Kochi", "Kozhikode", "Thrissur",
+          "Kollam", "Alappuzha", "Kannur", "Palakkad"
+        ],
+
+        AP: [
+          "Visakhapatnam", "Vijayawada", "Guntur", "Nellore",
+          "Kurnool", "Rajahmundry", "Tirupati", "Kadapa"
+        ],
+
+        TG: [
+          "Hyderabad", "Warangal", "Nizamabad", "Karimnagar",
+          "Khammam", "Ramagundam", "Mahabubnagar", "Adilabad"
+        ],
+
+        AS: [
+          "Guwahati", "Dibrugarh", "Silchar", "Jorhat",
+          "Tezpur", "Nagaon", "Tinsukia", "Bongaigaon"
+        ],
+
+        UK: [
+          "Dehradun", "Haridwar", "Roorkee", "Haldwani",
+          "Rudrapur", "Kashipur", "Rishikesh", "Almora"
+        ],
+
+        HP: [
+          "Shimla", "Dharamshala", "Mandi", "Solan",
+          "Kullu", "Hamirpur", "Bilaspur", "Chamba"
+        ],
+        AR: [
+          "Itanagar", "Naharlagun", "Pasighat", "Tawang",
+          "Bomdila", "Ziro", "Roing", "Tezu"
+        ],
+
+        GA: [
+          "Panaji", "Margao", "Vasco da Gama", "Mapusa",
+          "Ponda", "Bicholim", "Curchorem", "Quepem"
+        ],
+
+        MN: [
+          "Imphal", "Thoubal", "Bishnupur", "Churachandpur",
+          "Ukhrul", "Kakching", "Moirang", "Senapati"
+        ],
+
+        ML: [
+          "Shillong", "Tura", "Jowai", "Nongstoin",
+          "Baghmara", "Williamnagar", "Resubelpara", "Mairang"
+        ],
+
+        MZ: [
+          "Aizawl", "Lunglei", "Champhai", "Serchhip",
+          "Kolasib", "Saiha", "Lawngtlai", "Mamit"
+        ],
+
+        NL: [
+          "Kohima", "Dimapur", "Mokokchung", "Tuensang",
+          "Wokha", "Zunheboto", "Mon", "Phek"
+        ],
+
+        SK: [
+          "Gangtok", "Namchi", "Geyzing", "Mangan",
+          "Rangpo", "Singtam", "Jorethang", "Naya Bazar"
+        ],
+
+        TR: [
+          "Agartala", "Udaipur", "Dharmanagar", "Kailashahar",
+          "Belonia", "Khowai", "Teliamura", "Ambassa"
+        ]
+      };
+
+      function showCities() {
+        let currentState = document.getElementById("state").value;
+
+        let options = "<option>Select City</option>";
+
+        if (stateCities[currentState]) {
+          stateCities[currentState].forEach(city => {
+            options += `<option value="${city}">${city}</option>`;
+          });
+        }
+
+        document.getElementById("cities").innerHTML = options;
+      }
+  </script>
+</body>
+</html>
