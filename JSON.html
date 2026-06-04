@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>JSON</title>
+</head>
+<body>
+  
+  <script>
+     // object
+    let data = {
+      firstName : "Anurag",
+      lastName : "kushwaha",
+      age: 25,
+      catagory : "OBC",
+      Address : "bholaram"
+    }
+     
+    console.log(data);
+    console.log(typeof data);
+    
+    // stringify  - convert onject to JSON
+    let myJosn = JSON.stringify(data);
+    console.log(myJosn);
+    console.log(typeof myJosn);
+
+    // parse - convert JSON to object
+    let newObject = JSON.parse(myJosn);
+    console.log(newObject);
+    console.log(typeof newObject);
+
+  </script>
+</body>
+</html>

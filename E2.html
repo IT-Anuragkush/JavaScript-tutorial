@@ -1,0 +1,137 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>multiple object</title>
+  </head>
+  <body>
+
+    <div id="data"></div>
+    <script>
+      let adharData = [
+        {
+          name: "Alok Singh",
+          fatherName: "Ram Pratap Singh",
+          DOB: "01-01-2001",
+          gender: "male",
+          adharNumber: 456589586452,
+          Address: "20 Bholaram Nagar, Indore",
+          helpLineNumber: 1947,
+          helpLineMail: "help@uidai.gov.in",
+        },
+        {
+          name: "Rahul Sharma",
+          fatherName: "Mahesh Sharma",
+          DOB: "15-03-1999",
+          gender: "male",
+          adharNumber: 789654123987,
+          Address: "45 Vijay Nagar, Indore",
+          helpLineNumber: 1947,
+          helpLineMail: "help@uidai.gov.in",
+        },
+        {
+          name: "Priya Verma",
+          fatherName: "Rakesh Verma",
+          DOB: "22-07-2000",
+          gender: "female",
+          adharNumber: 654987321456,
+          Address: "12 Rajendra Nagar, Bhopal",
+          helpLineNumber: 1947,
+          helpLineMail: "help@uidai.gov.in",
+        },
+        {
+          name: "Amit Patel",
+          fatherName: "Suresh Patel",
+          DOB: "10-11-1998",
+          gender: "male",
+          adharNumber: 321654987123,
+          Address: "78 New Market, Bhopal",
+          helpLineNumber: 1947,
+          helpLineMail: "help@uidai.gov.in",
+        },
+        {
+          name: "Neha Gupta",
+          fatherName: "Vijay Gupta",
+          DOB: "05-05-2002",
+          gender: "female",
+          adharNumber: 852963741258,
+          Address: "33 Saket Nagar, Jabalpur",
+          helpLineNumber: 1947,
+          helpLineMail: "help@uidai.gov.in",
+        },
+        {
+          name: "Rohit Yadav",
+          fatherName: "Mohan Yadav",
+          DOB: "18-09-2001",
+          gender: "male",
+          adharNumber: 963852741369,
+          Address: "56 MP Nagar, Bhopal",
+          helpLineNumber: 1947,
+          helpLineMail: "help@uidai.gov.in",
+        },
+        {
+          name: "Sneha Mishra",
+          fatherName: "Anil Mishra",
+          DOB: "12-12-1997",
+          gender: "female",
+          adharNumber: 741852963147,
+          Address: "89 Civil Lines, Gwalior",
+          helpLineNumber: 1947,
+          helpLineMail: "help@uidai.gov.in",
+        },
+        {
+          name: "Vikas Jain",
+          fatherName: "Rajesh Jain",
+          DOB: "25-08-1996",
+          gender: "male",
+          adharNumber: 258741963852,
+          Address: "17 Shastri Nagar, Ujjain",
+          helpLineNumber: 1947,
+          helpLineMail: "help@uidai.gov.in",
+        },
+        {
+          name: "Pooja Tiwari",
+          fatherName: "Ashok Tiwari",
+          DOB: "08-02-2003",
+          gender: "female",
+          adharNumber: 147258369852,
+          Address: "22 Tilak Nagar, Indore",
+          helpLineNumber: 1947,
+          helpLineMail: "help@uidai.gov.in",
+        },
+        {
+          name: "Karan Dubey",
+          fatherName: "Shiv Dubey",
+          DOB: "30-06-2000",
+          gender: "male",
+          adharNumber: 369258147654,
+          Address: "41 Sudama Nagar, Indore",
+          helpLineNumber: 1947,
+          helpLineMail: "help@uidai.gov.in",
+        },
+      ];
+
+      console.log(adharData);
+
+      let info = "";
+      for(let i = 0; i < adharData.length; i++)
+      {
+        // console.log(adharData[i]);
+        info += `<p>${adharData[i].name}</P>
+                <p>${adharData[i].fatherName}</P>
+                <p>${adharData[i].DOB}</P>
+                <p>${adharData[i].gender}</P>
+                <p>${adharData[i].adharNumber}</P>
+                <p>${adharData[i].Address}</P>
+                <p>${adharData[i].helpLineNumber}</P>
+                <p>${adharData[i].helpLineMail}</P>
+                  <hr>
+              `;
+      }
+
+      document.getElementById("data").innerHTML = info;
+
+    </script>
+  </body>
+</html>

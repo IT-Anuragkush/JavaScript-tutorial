@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>event</title>
+</head>
+<body onload="pageLoadFun()">  <!-- onload event -->
+
+  <h2>onclick ondblclick events</h2>
+  <button type="button" onclick="showDiv()">click</button>
+  <button type="button" ondblclick="showDiv1()">double click</button>
+
+  <div id="fDiv"></div>
+
+  <h2>onmouseover onmouseout events</h2>
+  <img src="image/car.png" alt="carimage" id="myCar" onmouseover="carRun()" onmouseout="carRun1()" style="width: 200px; height: 200px;">
+
+  <h2>Onkeydown events</h2>
+  <input type="text" id="input1" onkeydown="showData1()" placeholder="Enter any value">
+  <span id="inputData1"></span>
+
+  <h2>Onkeyup events</h2>
+  <input type="text" id="input2" onkeyup="showData2()" placeholder="Enter any value">
+  <span id="inputData2"></span>
+
+  <h2>Onchange events</h2>
+  <input type="text" id="input3" onchange="showData3()" placeholder="Enter any number";>
+  <span id="inputData3"></span>
+
+  <script>
+    // onclick
+    function showDiv()
+    {
+      document.getElementById("fDiv").style.background = "red"; 
+      document.getElementById("fDiv").style.width = "100px";
+      document.getElementById("fDiv").style.height = "100px";  
+    }
+
+    // ondblclick
+    function showDiv1()
+    {
+      document.getElementById("fDiv").style.background = "green"; 
+      document.getElementById("fDiv").style.width = "100px";
+      document.getElementById("fDiv").style.height = "100px"; 
+      document.getElementById("fDiv").style.borderRadius = "50%"; 
+    }
+
+    // onmouseover
+    function carRun()
+    {
+       let image = document.getElementById("myCar");
+
+       image.src="image/car.gif";
+    }
+    // onmouseout
+    function carRun1()
+    {
+      document.getElementById("myCar").src="image/car.png";
+    }
+
+    // Onkeydown
+    function showData1()
+    {
+      let inp = document.getElementById("input1").value;
+      document.getElementById("inputData1").innerHTML = inp;
+    }
+
+    // Onkeyup
+    function showData2()
+    {
+      let inp = document.getElementById("input2").value;
+      document.getElementById("inputData2").innerHTML = inp;
+    }
+
+    // Onchange
+    function showData3()
+    {
+      let inp = document.getElementById("input3").value;
+      document.getElementById("inputData3").innerHTML = inp;
+    }
+
+    // onload
+    function pageLoadFun()
+    {
+      document.body.style.background = "gray";
+      document.body.style.border = "3px solid red";
+      document.body.style.padding = "20px";
+      document.body.style.margin = "20px";
+    }
+
+  </script>
+</body>
+</html>

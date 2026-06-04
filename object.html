@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>object in js</title>
+</head>
+<body>
+  
+  <script>
+    // create object
+    let uData = {
+      FirstName : "Ram",
+      LastName : "sharma",
+      Mobile : 24589145486,
+      Address : "50 bholaram",
+      Education : "MBA",
+      // function
+      fullName : function(){
+        return this.FirstName + " " + this.LastName;
+      },
+      // array
+      carName : ["hyndai", "tata punch", "oudi", "kia"]
+    };
+
+    console.log(uData);
+    console.log(uData.Education);
+    console.log(uData.Mobile);
+    console.log(uData["Address"]);
+
+    console.log(uData.fullName());  // function
+    console.log(uData["carName"]);   // array
+    for(let i=0;i<uData.carName.length;i++){  // element of array
+        console.log(uData.carName[i])
+    }
+
+    uData.FirstName = "shyam";   // update
+    console.log(uData.FirstName);
+    console.log(uData.fullName());
+
+    // for in loop
+    for(let key in uData)
+    {
+      // console.log(key);
+      console.log(`${key} : ${uData[key]}`);
+    }
+
+    // multiple object in side array
+    let multipleUser = [
+      {fullName : "Anurag", age : 24},
+      {fullName : "shubham", age : 22},
+      {fullName : "alok", age : 25}
+    ];
+
+    console.log(multipleUser);
+
+    for(let i = 0; i < multipleUser.length; i++)
+    {
+      console.log(multipleUser[i]);
+      console.log(multipleUser[i].fullName);
+
+      for(let key in multipleUser[i])
+      {
+        console.log(`${key} : ${multipleUser[i][key]}`);
+      }
+    }
+
+    // JSON
+    // stringify  - convert onject to JSON
+    console.log(typeof multipleUser);
+    
+    let myJosn = JSON.stringify(multipleUser);
+    
+    console.log(myJosn);
+    console.log(typeof myJosn);
+
+    // parse - convert JSON to object
+    let newObject = JSON.parse(myJosn);
+    console.log(newObject);
+    console.log(typeof newObject);
+    
+  </script>
+</body>
+</html>
