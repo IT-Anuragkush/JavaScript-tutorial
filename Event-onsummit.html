@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>form Validation</title>
+  <style>
+    body{
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+    form{
+      width: 300px;
+      background-color:azure ;
+      padding: 30px;
+      border: 1px solid gray;
+      border-radius: 5px;
+    }
+    h1{
+      text-align: center;
+      margin-bottom: 20px;
+    }
+    label{
+      font-size: 20px;
+      font-weight: bold;
+    }
+    input{
+      border-radius: 3px;
+      cursor: pointer;
+    }
+    input[type="submit"]{
+      width: 80px;
+      font-size: 15px;
+      padding: 5px;
+    }
+
+    input[type="submit"]:hover{
+        background: #0056b3;
+    }
+
+  </style>
+</head>
+<body>
+  
+  <form name="login" action="welcome.html" method="post" onsubmit="return forValidation()" >
+    
+    <h1>login form</h1>
+
+    <label for="">Username</label><br>
+    <input type="text" name="uname"><br><br>
+
+    <label for="">Password</label><br>
+    <input type="password" name="pws"><br><br>
+
+    <input type="submit"  value="Login">
+
+
+    <script>
+      function forValidation()
+      {
+        let uname = document.login.uname;
+        let pws = document.login.pws;
+
+        // alert(uname.value)
+        // alert(pws.value)
+
+        if(unameValidation(uname) && passwordValidation(pws))
+        {
+          return true;
+        }
+        else{
+          return false;
+        }
+      }
+
+      function unameValidation(uname)
+      {
+        let alphaSpace = /^[A-Za-z\s]+$/;
+        if(uname.value.match(alphaSpace) == false)
+        {
+          alert("Username should contain only letters");
+          uname.focus();
+          return false;
+        }
+
+        if(uname.value == "")
+        {
+          alert("Username is required");
+          uname.focus();
+          return false;
+        }
+
+        if(uname.value.length < 3)
+        {
+            alert("Username must be at least 3 characters");
+            uname.focus();
+            return false;
+        }
+      
+        return true;
+      }
+
+      function passwordValidation(pws)
+      {
+          if(pws.value.trim() == "")
+          {
+            alert("Password is required");
+            pws.focus();
+            return false;
+          }
+
+          let strongPass = /^(?=.*[A-Z])(?=.*[a-z])(?=.*\d).{6,}$/;
+
+          if(!strongPass.test(pws.value))
+          {
+              alert("Password must contain uppercase, lowercase and number");
+              pws.focus();
+              return false;
+          }
+
+          if(pws.value.length < 6)
+          {
+            alert("Password must be at least 6 characters");
+            pws.focus();
+            return false;
+          }
+
+          return true;
+      }
+    </script>
+  </form>
+</body>
+</html>

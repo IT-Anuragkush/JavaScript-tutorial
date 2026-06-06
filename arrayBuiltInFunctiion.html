@@ -10,6 +10,7 @@
   <script>
     // create array
     let uInfo = [101, "Anurag", "male", "+91-6453468355"];
+    let arr = [1,2,3,5,6,7,8,9,10];
 
     console.log(uInfo);
 
@@ -32,8 +33,31 @@
     console.log(uInfo);
     
     // unshift() method - it add element from the frist the array
-    uInfo.unshift("hello");
+    uInfo.unshift("hello", "shubham");
     console.log(uInfo);
+
+    // forEach() 
+    uInfo.forEach( (num)=>{
+      // console.log(num);
+      console.log(num);
+    })
+   
+    // map()
+    let newarr = uInfo.map( (num)=>{
+      return num + "_1";
+    });
+    console.log(newarr);
+
+    // map()
+    let newarr1 = arr.map( (e)=>{ return e*11 });
+    console.log(newarr1);
+
+    // filter()
+    let even = arr.filter( (f)=>{
+      return f % 2 === 0; // for odd number - return f % 2 !== 0
+    });
+    console.log(even);
+    
 
   </script>
 </body>

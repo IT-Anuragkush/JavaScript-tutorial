@@ -1,0 +1,115 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style> 
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: Arial, sans-serif;
+      }
+
+      body {
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background: #f4f4f4;
+      }
+
+      .container {
+        width: 350px;
+        background: #fff;
+        padding: 25px;
+        border-radius: 10px;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+      }
+
+      .container h2 {
+        text-align: center;
+        margin-bottom: 20px;
+        color: #333;
+      }
+
+      form input {
+        width: 100%;
+        padding: 10px;
+        margin-top: 10px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        outline: none;
+        font-size: 15px;
+      }
+
+      form input:focus {
+        border-color: #007bff;
+      }
+
+      button {
+        width: 100%;
+        padding: 10px;
+        margin-top: 15px;
+        background: #007bff;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        font-size: 16px;
+        cursor: pointer;
+        transition: 0.3s;
+      }
+
+      button:hover {
+        background: #0056b3;
+      }
+
+      .error {
+        color: red;
+        font-size: 14px;
+        margin-top: 5px;
+        min-height: 18px;
+      }
+
+      .success {
+        color: green;
+        text-align: center;
+        margin-top: 15px;
+        font-size: 16px;
+        font-weight: bold;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h2>Registration Form</h2>
+
+      <form name="myForm" action="E4-welcome.html" method="get" onsubmit="return formValidation();"
+      >
+        <input type="text" name="uname" placeholder="Enter Name" />
+        <div id="nameError" class="error"></div>
+
+        <input type="email" name="email" placeholder="Enter Email" />
+        <div id="emailError" class="error"></div>
+
+        <input type="text" name="phone" placeholder="Enter phone number" />
+        <div id="phoneError" class="error"></div>
+
+        <input type="password" name="password" placeholder="Enter Password" />
+        <div id="passwordError" class="error"></div>
+
+        <input type="password" name="conPassword" placeholder="Enter confirm Password" />
+        <div id="conPasswordError" class="error"></div>
+
+        <button type="submit">Submit</button>
+      </form>
+
+      <div id="successMsg" class="success"></div>
+    </div>
+
+    <script src="E4-validation.js">
+      
+    </script>
+  </body>
+</html>

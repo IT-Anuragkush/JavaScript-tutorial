@@ -1,0 +1,123 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Form Validation</title>
+
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        background: #f4f4f4;
+      }
+
+      .container {
+        background: white;
+        padding: 20px;
+        border-radius: 10px;
+        width: 300px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+      }
+
+      input {
+        width: 100%;
+        padding: 10px;
+        margin: 8px 0;
+        box-sizing: border-box;
+      }
+
+      button {
+        width: 100%;
+        padding: 10px;
+        background: green;
+        color: white;
+        border: none;
+        cursor: pointer;
+      }
+
+      .error {
+        color: red;
+        font-size: 14px;
+      }
+
+      .success {
+        color: green;
+        font-size: 16px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h2>Registration Form</h2>
+
+      <form id="myForm">
+        <input type="text" id="name" placeholder="Enter Name" />
+        <div id="nameError" class="error"></div>
+
+        <input type="email" id="email" placeholder="Enter Email" />
+        <div id="emailError" class="error"></div>
+
+        <input type="password" id="password" placeholder="Enter Password" />
+        <div id="passwordError" class="error"></div>
+
+        <button type="submit">Submit</button>
+      </form>
+
+      <div id="successMsg" class="success"></div>
+    </div>
+
+    <script>
+      document
+        .getElementById("myForm")
+        .addEventListener("submit", function (event) {
+          event.preventDefault();
+
+          let name = document.getElementById("name").value;
+          let email = document.getElementById("email").value;
+          let password = document.getElementById("password").value;
+          
+          document.getElementById("nameError").innerHTML = "";
+          document.getElementById("emailError").innerHTML = "";
+          document.getElementById("passwordError").innerHTML = "";
+          document.getElementById("successMsg").innerHTML = "";
+
+          let isValid = true;
+
+          // Name Validation
+          if (name === "") {
+            document.getElementById("nameError").innerHTML = "Name is required";
+            isValid = false;
+          }
+
+          // Email Validation
+          let emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+          if (email === "") {
+            document.getElementById("emailError").innerHTML =
+              "Email is required";
+            isValid = false;
+          } else if (!emailPattern.test(email)) {
+            document.getElementById("emailError").innerHTML =
+              "Enter valid email";
+            isValid = false;
+          }
+
+          // Password Validation
+          if (password.length < 6) {
+            document.getElementById("passwordError").innerHTML =
+              "Password must be at least 6 characters";
+            isValid = false;
+          }
+
+          if (isValid) {
+            document.getElementById("successMsg").innerHTML =
+              "Form Submitted Successfully!";
+          }
+        });
+    </script>
+  </body>
+</html>
