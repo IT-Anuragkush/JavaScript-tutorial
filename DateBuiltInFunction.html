@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Date built in function</title>
+</head>
+<body>
+  
+  <script>
+    console.log(Date()); 
+  
+    let d = new Date();    // or
+
+    console.log(d);
+
+    // Date.now()
+    console.log(Date.now()); // it not work with d
+
+    // Date.getDate()
+    console.log(d.getDate());  // specific(today) day
+
+    // Date.getYear()
+    console.log(d.getFullYear());
+    console.log(d.getDay());  
+    console.log(d.getHours());
+    console.log(d.getMinutes());
+    console.log(d.getSeconds());
+    console.log(d.getMilliseconds());
+    console.log(d.getMonth() + 1);  // it start 0 index
+
+  </script>
+</body>
+</html>

@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>math bulit in function</title>
+</head>
+<body>
+  
+  <script>
+    // Math.max()
+    console.log( Math.max(1,200,8,20,30,90));
+
+    // Math.min()
+    console.log( Math.min(1,200,8,20,30,90));
+
+    // Math.floor()
+    let num = 7.7;
+    console.log( Math.floor(num));  // 7 
+
+    // num = Math.floor(num)  // it change num value
+    // console.log(num); 
+
+    // Math.ceil()
+    console.log( Math.ceil(num));   // 8
+
+    // Math.random() - it generate random number 
+    let newNum = Math.random();
+    console.log(newNum);  // it gives 0 to  number
+
+    // Math.round() - Nearest integer
+    console.log(Math.round(4.4)); // 4
+    console.log(Math.round(4.5)); // 5
+
+    // Math.random()
+    let newNum1 = Math.floor(Math.random()*25)+1; // it give 0 to 25 number
+    console.log(newNum1);
+
+    let r = Math.floor(Math.random()*255);
+    let g = Math.floor(Math.random()*255);
+    let b = Math.floor(Math.random()*255);
+    let a = Math.random();
+
+    document.body.style.backgroundColor =`rgba(${r}, ${g}, ${b}, ${a})`;
+
+    // Math.abs() - Absolute value (it convert negative to positive number)
+    console.log(Math.abs(-10)); // 10
+
+    // Math.pow()
+    console.log(Math.pow(2, 3)); // 8
+    console.log(2 ** 3); // 8 // modern java script
+
+    // Math.sqrt()
+    console.log(Math.sqrt(25)); // 5
+
+    // Math.cbrt()
+    console.log(Math.cbrt(27)); // 3
+
+    // Math.trunc() - remove decimal part
+    console.log(Math.trunc(4.9)); // 4
+    console.log(Math.trunc(-4.9)); // -4
+
+    // Math Constants
+    console.log(Math.PI); // 3.141592...
+    console.log(Math.E);  // 2.718281...
+
+    // Math.sin(), Math.cos(), Math.tan()
+    console.log(Math.sin(0)); // 0
+    console.log(Math.cos(0)); // 1
+
+    // Math.log()
+    console.log(Math.log(1)); // 0
+    
+    // parseInt()
+    // parseFloat()
+
+  </script>
+</body>
+</html>

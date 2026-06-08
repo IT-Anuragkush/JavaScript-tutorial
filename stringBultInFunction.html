@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>string bulit in function</title>
+</head>
+<body>
+  
+  <script>
+    let str = "indore";
+    console.log(str);
+    console.log(typeof str);
+
+    // chatAt()
+    console.log(str.charAt(2));
+
+    // include()
+    let newStr = "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quis quaerat numquam id aliquam nesciunt quos quasi dolorum? Nobis rerum minima non illum, fugit nam minus sequi est cupiditate distinctio tempore?"
+
+    console.log(newStr.includes("dolor")); // true
+    console.log(newStr.includes("indore")); // false
+
+    // indexOf() - it gives index of charactor
+    let newStr1 = "i am learning js";
+
+    console.log(newStr1.indexOf("j")); // 14
+
+    // slice() 
+    console.log(newStr1.slice(1, 9)) // 1 include but 5 not include
+
+    // toLowerCase()
+    let newStr2 = "This Is tOLOWERCase Function";
+    console.log(newStr2.toLowerCase());
+
+    // toUperCase()
+    let newStr3 = "this is toUperCase function";
+    console.log(newStr3.toUpperCase());
+
+    // split()
+    let myStr = "we are in indore";
+    let strToArr = myStr.split(' '); // split in space base
+    console.log(strToArr);
+
+    let myStr1 = "we,are,in,indore";
+    let strToArr1 = myStr.split(','); // split in space base
+    console.log(strToArr1);
+    console.log(typeof strToArr1);
+
+  </script>
+</body>
+</html>

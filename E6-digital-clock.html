@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+      font-family:Arial, sans-serif;
+    }
+    body{
+      height:100vh;
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      background:#121212;
+    }
+    .clock{
+      padding:30px 50px;
+      border-radius:15px;
+      background:#1f1f1f;
+      color:#00ff88;
+      font-size:70px;
+      font-weight:bold;
+      letter-spacing:5px;
+      box-shadow: 0 0 20px #00ff88;
+    }
+  </style>
+</head>
+<body>
+  
+  <div id="clock" class="clock">
+    00:00:00
+  </div>
+
+  <script>
+    function currentTime()
+    {
+      let d = new Date();
+
+      let H = d.getHours();
+      let M = d.getMinutes();
+      let S = d.getSeconds();
+
+      // document.getElementById("watch").innerHTML =`rgb(${H}, ${M}, ${S})`;
+      document.getElementById("clock").innerHTML =`(${H}: ${M}: ${S})`;
+    }
+
+    // setTimeout( currentTime, 1000);
+    setInterval(currentTime, 1000); // it change 1 second
+
+  </script>
+</body>
+</html>

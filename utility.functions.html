@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>setTimeOut function</title>
+</head>
+<body>
+  <div id="fDiv"></div>
+  <div id="sDiv"></div>
+
+  <div id="watch"></div>
+
+  <script>
+
+    let msg = "hello";
+    document.getElementById("fDiv").innerHTML = msg;
+
+    // setTimeout()
+    setTimeout( ()=>{
+      document.getElementById("sDiv").innerHTML = msg;
+    }, 3000);
+
+    // setTimeout()
+    setInterval( ()=>{
+      document.getElementById("sDiv").innerHTML = msg;
+    }, 3000);
+
+    function bgChange()
+    {
+      let r = Math.floor(Math.random()*255);
+      let g = Math.floor(Math.random()*255);
+      let b = Math.floor(Math.random()*255);
+
+      document.body.style.backgroundColor =`rgb(${r}, ${g}, ${b})`;
+    }
+
+    // setTimeout( bgChange, 5000);
+    setInterval(bgChange, 2000);
+    
+    function currentTime()
+    {
+      let d = new Date();
+
+      let H = d.getHours();
+      let M = d.getMinutes();
+      let S = d.getSeconds();
+
+      // document.getElementById("watch").innerHTML =`rgb(${H}, ${M}, ${S})`;
+      document.getElementById("watch").innerHTML =`(${H}: ${M}: ${S})`;
+    }
+
+    // setTimeout( currentTime, 5000);
+    setInterval(currentTime, 1000);
+
+  </script>
+
+</body>
+</html>
