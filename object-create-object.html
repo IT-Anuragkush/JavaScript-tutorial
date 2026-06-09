@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>creating object</title>
+</head>
+<body>
+  
+
+  <script>
+    // In JavaScript, you can create an object in several ways.
+
+    // 1. Object Literal (Most Common)
+    const person = {
+      name: "Anurag",
+      age: 21,
+      city: "Bhopal"
+    };
+
+    console.log(person.name); // Anurag
+
+    // 2. Using new Object()
+    const person1 = new Object();
+
+    person1.name = "Anurag";
+    person1.age = 21;
+
+    console.log(person1);
+
+    // 3. Using a Constructor Function (ES5)
+    function Person(name, age) {   // this is constructor function
+      this.name = name;
+      this.age = age;
+    }
+
+    const p1 = new Person("Anurag", 21);
+
+    console.log(p1.name); // Anurag
+
+    // 4. Using a Class (ES6)
+    class PersonFun {
+      constructor(name, age) {
+        this.name = name;
+        this.age = age;
+      }
+    }
+
+    const p2 = new PersonFun("Anurag", 21);
+
+    console.log(p2);
+  </script>
+</body>
+</html>
