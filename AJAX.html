@@ -1,69 +1,29 @@
-<!doctype html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>AJAX</title>
-  </head>
-  <body>
-    <button type="button" onclick="loadData()">click Me</button>
-    <div id="myData"></div>
+<!DOCTYPE html>
+<html>
+<head>
+    <title>AJAX Example</title>
+</head>
+<body>
 
-    <script>
-      function loadData() {
-        // create a new XMLHttpRequest object
-        var xhr = new XMLHttpRequest();
+<button onclick="loadData()">Get Data</button>
 
-        // xhr.open('GET', 'Ajax.txt', true);
-        xhr.open("GET", "https://dummyjson.com/carts", true);
+<div id="result"></div>
 
-        xhr.onload = function () {
-          if (xhr.status === 200) {
-            // console.log(xhr.responseText);
-            let result = JSON.parse(xhr.responseText);
+<script>
+function loadData() {
+    let xhr = new XMLHttpRequest();
 
-            console.log(result);
+    xhr.open("GET", "https://jsonplaceholder.typicode.com/posts/1", true);
 
-            let data = "";
+    xhr.onload = function () {
+        if (xhr.status === 200) {
+            document.getElementById("result").innerHTML = xhr.responseText;
+        }
+    };
 
-            for (let i = 0; i < result.carts.length; i++) {
-              
-              data += `<h3>Id : ${result.carts[i].id} </h3>`;
+    xhr.send();
+}
+</script>
 
-              data += `<h3>Products:</h3>`;
-
-              for (let j = 0; j < result.carts[i].products.length; j++) {
-                let product = result.carts[i].products[j];
-
-                data += `
-                    id : ${product.id} <br>
-                    Title : ${product.title} <br>
-                    Price : ${product.price} <br>
-                    Quantity : ${product.quantity} <br>
-                    total : ${product.total} <br>
-                    discountPercentage : ${product.discountPercentage} <br>
-                    discountedTotal : ${product.discountedTotal} <br>
-                    <img src="${product.thumbnail}" alt="${product.title}" width="100"> <br>
-                `;
-              }
-              data += `<h3>total : ${result.carts[i].total} </h3>`;
-              data += `<h3>discountedTotal : ${result.carts[i].discountedTotal} </h3>`;
-              data += `<h3>userId : ${result.carts[i].userId} </h3>`;
-              data += `<h3>totalProducts : ${result.carts[i].totalProducts} </h3>`;
-              data += `<h3>totalQuantity : ${result.carts[i].totalQuantity} </h3>`;
-              data += `<hr>`;
-            }
-
-            document.getElementById("myData").innerHTML = data;
-            // document.getElementById("myData").innerHTML = xhr.responseText;
-          } else {
-            document.getElementById("myData").innerHTML =
-              "error in loading data";
-          }
-        };
-
-        xhr.send();
-      }
-    </script>
-  </body>
+</body>
 </html>

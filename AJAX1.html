@@ -4,91 +4,6 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>AJAX</title>
-    <style>
-      * {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-        font-family: Arial, sans-serif;
-      }
-
-      body {
-        background: #f4f6f9;
-        padding: 20px;
-      }
-
-      button {
-        padding: 12px 25px;
-        background: #2563eb;
-        color: white;
-        border: none;
-        border-radius: 8px;
-        cursor: pointer;
-        font-size: 16px;
-        margin-bottom: 20px;
-        display:block;
-        margin:20px auto;
-      }
-      
-      button:hover {
-        background: #1d4ed8;
-      }
-
-      #myData {
-        max-width: 1200px;
-        margin: auto;
-      }
-
-      .cart {
-        background: #fff;
-        padding: 20px;
-        margin-bottom: 25px;
-        border-radius: 12px;
-        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
-        transition: 0.3s;
-      }
-
-      .cart:hover {
-        transform: translateY(-5px);
-      }
-
-      .product {
-        display: flex;
-        gap: 20px;
-        align-items: center;
-        padding: 15px;
-        margin: 15px 0;
-        border: 1px solid #ddd;
-        border-radius: 10px;
-        background: #fafafa;
-      }
-
-      .product img {
-        width: 120px;
-        height: 120px;
-        object-fit: cover;
-        border-radius: 10px;
-      }
-
-      .product-details {
-        line-height: 1.8;
-      }
-
-      h3 {
-        color: #222;
-        margin-bottom: 10px;
-      }
-
-      .cart-summary {
-        margin-top: 15px;
-        padding-top: 15px;
-        border-top: 2px solid #eee;
-      }
-
-      hr {
-        display: none;
-      }
-    </style>
   </head>
   <body>
     <button type="button" onclick="loadData()">click Me</button>
@@ -96,61 +11,54 @@
 
     <script>
       function loadData() {
-        const xhr = new XMLHttpRequest();
+        // create a new XMLHttpRequest object
+        var xhr = new XMLHttpRequest();
 
+        // xhr.open('GET', 'Ajax.txt', true);
         xhr.open("GET", "https://dummyjson.com/carts", true);
 
         xhr.onload = function () {
           if (xhr.status === 200) {
-            const result = JSON.parse(xhr.responseText);
+            // console.log(xhr.responseText);
+            let result = JSON.parse(xhr.responseText);
+
+            console.log(result);
 
             let data = "";
 
             for (let i = 0; i < result.carts.length; i++) {
-              const cart = result.carts[i];
+              
+              data += `<h3>Id : ${result.carts[i].id} </h3>`;
 
-              data += `
-        <div class="cart">
-          <h2>Cart ID: ${cart.id}</h2>
-          <h3>Products</h3>
-        `;
+              data += `<h3>Products:</h3>`;
 
-              for (let j = 0; j < cart.products.length; j++) {
-                const product = cart.products[j];
+              for (let j = 0; j < result.carts[i].products.length; j++) {
+                let product = result.carts[i].products[j];
 
                 data += `
-          <div class="product">
-            <img src="${product.thumbnail}" alt="${product.title}">
-
-            <div class="product-details">
-              <p><strong>ID:</strong> ${product.id}</p>
-              <p><strong>Title:</strong> ${product.title}</p>
-              <p><strong>Price:</strong> ₹${product.price}</p>
-              <p><strong>Quantity:</strong> ${product.quantity}</p>
-              <p><strong>Total:</strong> ₹${product.total}</p>
-              <p><strong>Discount:</strong> ${product.discountPercentage}%</p>
-              <p><strong>Discounted Total:</strong> ₹${product.discountedTotal}</p>
-            </div>
-          </div>
-          `;
+                    id : ${product.id} <br>
+                    Title : ${product.title} <br>
+                    Price : ${product.price} <br>
+                    Quantity : ${product.quantity} <br>
+                    total : ${product.total} <br>
+                    discountPercentage : ${product.discountPercentage} <br>
+                    discountedTotal : ${product.discountedTotal} <br>
+                    <img src="${product.thumbnail}" alt="${product.title}" width="100"> <br>
+                `;
               }
-
-              data += `
-          <div class="cart-summary">
-            <p><strong>Total:</strong> ₹${cart.total}</p>
-            <p><strong>Discounted Total:</strong> ₹${cart.discountedTotal}</p>
-            <p><strong>User ID:</strong> ${cart.userId}</p>
-            <p><strong>Total Products:</strong> ${cart.totalProducts}</p>
-            <p><strong>Total Quantity:</strong> ${cart.totalQuantity}</p>
-          </div>
-        </div>
-        `;
+              data += `<h3>total : ${result.carts[i].total} </h3>`;
+              data += `<h3>discountedTotal : ${result.carts[i].discountedTotal} </h3>`;
+              data += `<h3>userId : ${result.carts[i].userId} </h3>`;
+              data += `<h3>totalProducts : ${result.carts[i].totalProducts} </h3>`;
+              data += `<h3>totalQuantity : ${result.carts[i].totalQuantity} </h3>`;
+              data += `<hr>`;
             }
 
             document.getElementById("myData").innerHTML = data;
+            // document.getElementById("myData").innerHTML = xhr.responseText;
           } else {
             document.getElementById("myData").innerHTML =
-              "<h2>Failed to load data</h2>";
+              "error in loading data";
           }
         };
 
