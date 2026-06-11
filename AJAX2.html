@@ -3,7 +3,8 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>AJAX</title>
+    <title>AJAX Products</title>
+
     <style>
       * {
         margin: 0;
@@ -13,144 +14,135 @@
       }
 
       body {
-        background: #f4f6f9;
+        background: #f1f3f6;
         padding: 20px;
       }
 
       button {
-        padding: 12px 25px;
-        background: #2563eb;
-        color: white;
+        display: block;
+        margin: 20px auto;
+        padding: 12px 30px;
         border: none;
         border-radius: 8px;
-        cursor: pointer;
+        background: #2874f0;
+        color: white;
         font-size: 16px;
-        margin-bottom: 20px;
-        display:block;
-        margin:20px auto;
+        cursor: pointer;
       }
-      
+
       button:hover {
-        background: #1d4ed8;
+        background: #1f5fc4;
       }
 
-      #myData {
-        max-width: 1200px;
+      #result {
+        max-width: 1400px;
         margin: auto;
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+        gap: 20px;
       }
 
-      .cart {
-        background: #fff;
-        padding: 20px;
-        margin-bottom: 25px;
-        border-radius: 12px;
-        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+      .card {
+        background: white;
+        border-radius: 10px;
+        overflow: hidden;
+        border: 1px solid #ddd;
         transition: 0.3s;
       }
 
-      .cart:hover {
+      .card:hover {
         transform: translateY(-5px);
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
       }
 
-      .product {
-        display: flex;
-        gap: 20px;
-        align-items: center;
+      .card img {
+        width: 100%;
+        height: 220px;
+        object-fit: contain;
+        padding: 10px;
+        background: white;
+      }
+
+      .details {
         padding: 15px;
-        margin: 15px 0;
-        border: 1px solid #ddd;
-        border-radius: 10px;
-        background: #fafafa;
       }
 
-      .product img {
-        width: 120px;
-        height: 120px;
-        object-fit: cover;
-        border-radius: 10px;
-      }
-
-      .product-details {
-        line-height: 1.8;
-      }
-
-      h3 {
-        color: #222;
+      .title {
+        font-size: 16px;
+        font-weight: bold;
+        color: #333;
         margin-bottom: 10px;
       }
 
-      .cart-summary {
-        margin-top: 15px;
-        padding-top: 15px;
-        border-top: 2px solid #eee;
+      .price {
+        font-size: 22px;
+        color: #111;
+        font-weight: bold;
+        margin-bottom: 8px;
       }
 
-      hr {
-        display: none;
+      .rating {
+        display: inline-block;
+        background: green;
+        color: white;
+        padding: 4px 10px;
+        border-radius: 20px;
+        font-size: 13px;
+        margin-bottom: 10px;
+      }
+
+      .brand {
+        color: #666;
+        margin-top: 8px;
+      }
+
+      .stock {
+        color: #2563eb;
+        margin-top: 5px;
       }
     </style>
   </head>
   <body>
-    <button type="button" onclick="loadData()">click Me</button>
-    <div id="myData"></div>
+    <button onclick="loadData()">Get Products</button>
+
+    <div id="result"></div>
 
     <script>
       function loadData() {
-        const xhr = new XMLHttpRequest();
+        let xhr = new XMLHttpRequest();
 
-        xhr.open("GET", "https://dummyjson.com/carts", true);
+        xhr.open("GET", "https://dummyjson.com/products?limit=194", true);
 
         xhr.onload = function () {
           if (xhr.status === 200) {
-            const result = JSON.parse(xhr.responseText);
+            let data = JSON.parse(xhr.responseText);
 
-            let data = "";
+            console.log(data.products.length);
 
-            for (let i = 0; i < result.carts.length; i++) {
-              const cart = result.carts[i];
+            let output = "";
 
-              data += `
-        <div class="cart">
-          <h2>Cart ID: ${cart.id}</h2>
-          <h3>Products</h3>
-        `;
+            for (let i = 0; i < data.products.length; i++) {
+              let product = data.products[i];
 
-              for (let j = 0; j < cart.products.length; j++) {
-                const product = cart.products[j];
-
-                data += `
-          <div class="product">
-            <img src="${product.thumbnail}" alt="${product.title}">
-
-            <div class="product-details">
-              <p><strong>ID:</strong> ${product.id}</p>
-              <p><strong>Title:</strong> ${product.title}</p>
-              <p><strong>Price:</strong> ₹${product.price}</p>
-              <p><strong>Quantity:</strong> ${product.quantity}</p>
-              <p><strong>Total:</strong> ₹${product.total}</p>
-              <p><strong>Discount:</strong> ${product.discountPercentage}%</p>
-              <p><strong>Discounted Total:</strong> ₹${product.discountedTotal}</p>
-            </div>
-          </div>
-          `;
-              }
-
-              data += `
-          <div class="cart-summary">
-            <p><strong>Total:</strong> ₹${cart.total}</p>
-            <p><strong>Discounted Total:</strong> ₹${cart.discountedTotal}</p>
-            <p><strong>User ID:</strong> ${cart.userId}</p>
-            <p><strong>Total Products:</strong> ${cart.totalProducts}</p>
-            <p><strong>Total Quantity:</strong> ${cart.totalQuantity}</p>
-          </div>
-        </div>
-        `;
+              output += `
+                <div class="card">
+                    <img src="${product.thumbnail}">                   
+                    <div class="details">
+                        <h3>id : ${product.id}</h3>
+                        <h3>title : ${product.title}</h3>                        
+                        <h3>category : ${product.category}</h3>
+                        <h2>price : ₹${product.price}</h2>
+                        <h3>discountPercentage : ${product.discountPercentage}</h3>
+                        <h2>rating : ₹${product.rating}</h2>
+                        <h2>stock : ₹${product.stock}</h2>
+                        <p>brand : ${product.brand}</p>                       
+                        <p>weight : ${product.weight}</p>                        
+                    </div>
+                </div>
+                `;
             }
 
-            document.getElementById("myData").innerHTML = data;
-          } else {
-            document.getElementById("myData").innerHTML =
-              "<h2>Failed to load data</h2>";
+            document.getElementById("result").innerHTML = output;
           }
         };
 

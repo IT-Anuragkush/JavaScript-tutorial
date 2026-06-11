@@ -13,16 +13,43 @@
 function loadData() {
     let xhr = new XMLHttpRequest();
 
-    xhr.open("GET", "https://jsonplaceholder.typicode.com/posts/1", true);
+    // xhr.open("GET", "https://jsonplaceholder.typicode.com/posts/1", true);
+    // xhr.open("GET", "https://remotive.com/api/remote-jobs", true);
+    xhr.open("GET", "Ajax.txt", true);
 
     xhr.onload = function () {
         if (xhr.status === 200) {
             document.getElementById("result").innerHTML = xhr.responseText;
+            // console.log(xhr.responseText);
         }
     };
 
     xhr.send();
 }
+
+// let xhr = new XMLHttpRequest() : -
+           // Ye browser ka built-in object hai jo server ko request bhejne aur response lene ke liye use hota hai.
+
+
+// xhr.open("GET", "https://dummyjson.com/carts", true) : -
+            // "GET" → Data fetch karna hai.
+            // "https://dummyjson.com/carts" → API URL.
+            // true → Asynchronous request (page freeze nahi hoga).
+
+// xhr.onload = function () : -
+           // Ye function tab chalega jab server response bhej dega.
+
+// if (xhr.status === 200) : -
+           // 200 ka matlab request successful hai.
+
+// const result = JSON.parse(xhr.responseText) : -
+            // JSON String ko Object Banana
+            // API se data string form me aata hai.
+
+// xhr.send() : -
+            // Request Bhejna
+
+            // Ye actual request server ko bhejta hai.
 </script>
 
 </body>
